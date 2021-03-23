@@ -17,23 +17,46 @@ public partial class MainWindow : Gtk.Window
         a.RetVal = true;
     }
 
-    private int Precedence(char prec)
+    private bool Precedence(char op1, char op2)
     {
-        if(prec == '*' || prec == '/')
+        if (op2 == '(' || op2 == ')')
         {
-            return 2;
+            return false;
         }
-        else if(prec == '+' || prec == '-')
+        if ((op1 == '*' || op1 == '/') &&
+               (op2 == '+' || op2 == '-'))
         {
-            return 1;
+            return false;
         }
         else
         {
-            return -1;
+            return true;
         }
     }
 
-    public void Calculate()
+    private int DoOperation(char op, int num1, int num2)
+    {
+        switch (op)
+        {
+            case '+':
+                return num1 + num2;
+            case '-':
+                return num1 - num2;
+            case '*':
+                return num1 * num2;
+            case '/':
+                if (num2 == 0)
+                {
+                    throw new
+                    System.NotSupportedException(
+                           "Cannot divide by zero");
+                }
+                return num1 / num2;
+        }
+        return 0;
+    }
+
+    public int Calculate()
     {
         Stack values = new Stack();
         Stack operators = new Stack();
@@ -51,10 +74,48 @@ public partial class MainWindow : Gtk.Window
             // if current token is number, push it to stack number
             if (tokens[i] >= '0' && tokens[i] <= '9')
             {
-                String
+                StringBuilder sbuffer = new StringBuilder();
+                while (i < tokens.Length && tokens[i] >= '0' && tokens[i] <= '9')
+                {
+                    sbuffer.Append(tokens[i]);
+                    i++;
+                }
+                values.Push(int.Parse(sbuffer.ToString()));
+                // right now i is point character after digit, we need to turn back 1
+                i--;
+            }
+            else if (tokens[i] == '(')
+            {
+                operators.Push(tokens[i]);
+            }
+            else if (tokens[i] == ')')
+            {
+                while ((char)operators.Peek() != '(')
+                {
+                    values.Push(DoOperation(
+                    (char)operators.Pop(), (int)values.Pop(), (int)values.Pop()));
+                }
+                operators.Pop();
+            }
+            else if (tokens[i] == '+' ||
+                     tokens[i] == '-' ||
+                     tokens[i] == '*' ||
+                     tokens[i] == '/')
+            {
+                while (operators.Count > 0 && Precedence(tokens[i], (char)operators.Peek()))
+                {
+                    values.Push(DoOperation((char)operators.Pop(), (int)values.Pop(), (int)values.Pop()));
+                }
+                operators.Push(tokens[i]);
             }
         }
 
+        while (operators.Count > 0)
+        {
+            values.Push(DoOperation((char)operators.Pop(), (int)values.Pop(), (int)values.Pop()));
+        }
+
+        return (int)values.Pop();
     }
 
     public void Clear()
@@ -108,7 +169,7 @@ public partial class MainWindow : Gtk.Window
             SetText("000");
         };
         equal.Clicked += (object obj, EventArgs args) => {
-            Calculate();
+            display.Buffer.Text = Calculate().ToString();
         };
         plus.Clicked += (object obj, EventArgs args) => {
             SetText("+");
