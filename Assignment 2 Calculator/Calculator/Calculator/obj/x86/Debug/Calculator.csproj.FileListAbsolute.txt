@@ -1,0 +1,6 @@
+/home/syubban/Repositories/PBKK-Directory/Assignment 2 Calculator/Calculator/Calculator/bin/Debug/Calculator.exe
+/home/syubban/Repositories/PBKK-Directory/Assignment 2 Calculator/Calculator/Calculator/bin/Debug/Calculator.pdb
+/home/syubban/Repositories/PBKK-Directory/Assignment 2 Calculator/Calculator/Calculator/obj/x86/Debug/Calculator.csprojAssemblyReference.cache
+/home/syubban/Repositories/PBKK-Directory/Assignment 2 Calculator/Calculator/Calculator/obj/x86/Debug/Calculator.csproj.CoreCompileInputs.cache
+/home/syubban/Repositories/PBKK-Directory/Assignment 2 Calculator/Calculator/Calculator/obj/x86/Debug/Calculator.exe
+/home/syubban/Repositories/PBKK-Directory/Assignment 2 Calculator/Calculator/Calculator/obj/x86/Debug/Calculator.pdb

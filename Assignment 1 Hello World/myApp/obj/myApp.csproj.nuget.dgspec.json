@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/syubban/Repositories/PBKK-Directory/Assignment 1/myApp/myApp.csproj": {}
+    "/home/syubban/Repositories/PBKK-Directory/Assignment 1 Hello World/myApp/myApp.csproj": {}
   },
   "projects": {
-    "/home/syubban/Repositories/PBKK-Directory/Assignment 1/myApp/myApp.csproj": {
+    "/home/syubban/Repositories/PBKK-Directory/Assignment 1 Hello World/myApp/myApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/syubban/Repositories/PBKK-Directory/Assignment 1/myApp/myApp.csproj",
+        "projectUniqueName": "/home/syubban/Repositories/PBKK-Directory/Assignment 1 Hello World/myApp/myApp.csproj",
         "projectName": "myApp",
-        "projectPath": "/home/syubban/Repositories/PBKK-Directory/Assignment 1/myApp/myApp.csproj",
+        "projectPath": "/home/syubban/Repositories/PBKK-Directory/Assignment 1 Hello World/myApp/myApp.csproj",
         "packagesPath": "/home/syubban/.nuget/packages/",
-        "outputPath": "/home/syubban/Repositories/PBKK-Directory/Assignment 1/myApp/obj/",
+        "outputPath": "/home/syubban/Repositories/PBKK-Directory/Assignment 1 Hello World/myApp/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/syubban/.nuget/NuGet/NuGet.Config"
