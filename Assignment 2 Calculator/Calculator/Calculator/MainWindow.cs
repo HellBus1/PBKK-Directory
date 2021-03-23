@@ -1,6 +1,6 @@
 ﻿using System;
 using Gtk;
-using System.Collections;
+using System.Collections.Generic;
 using System.Text;
 
 public partial class MainWindow : Gtk.Window
@@ -17,105 +17,60 @@ public partial class MainWindow : Gtk.Window
         a.RetVal = true;
     }
 
-    private bool Precedence(char op1, char op2)
+    public static int ComputeInfix(string infix)
     {
-        if (op2 == '(' || op2 == ')')
-        {
-            return false;
-        }
-        if ((op1 == '*' || op1 == '/') &&
-               (op2 == '+' || op2 == '-'))
-        {
-            return false;
-        }
-        else
-        {
-            return true;
-        }
-    }
+        var operatorstack = new Stack<char>();
+        var operandstack = new Stack<int>();
 
-    private int DoOperation(char op, int num1, int num2)
-    {
-        switch (op)
+        var precedence = new Dictionary<char, int> { { '(', 0 }, { '*', 1 }, { '/', 1 }, { '+', 2 }, { '-', 2 }, { ')', 3 } };
+
+        foreach (var ch in $"({infix})")
         {
-            case '+':
-                return num1 + num2;
-            case '-':
-                return num1 - num2;
-            case '*':
-                return num1 * num2;
-            case '/':
-                if (num2 == 0)
-                {
-                    throw new
-                    System.NotSupportedException(
-                           "Cannot divide by zero");
-                }
-                return num1 / num2;
-        }
-        return 0;
-    }
-
-    public int Calculate()
-    {
-        Stack values = new Stack();
-        Stack operators = new Stack();
-
-        String currentBuffer = display.Buffer.Text;
-        char[] tokens = currentBuffer.ToCharArray();
-
-        for (int i=0; i< tokens.Length; i++)
-        {
-            // if current token is a whitespace, skip it
-            if (tokens[i] == ' ')
+            switch (ch)
             {
-                continue;
-            }
-            // if current token is number, push it to stack number
-            if (tokens[i] >= '0' && tokens[i] <= '9')
-            {
-                StringBuilder sbuffer = new StringBuilder();
-                while (i < tokens.Length && tokens[i] >= '0' && tokens[i] <= '9')
-                {
-                    sbuffer.Append(tokens[i]);
-                    i++;
-                }
-                values.Push(int.Parse(sbuffer.ToString()));
-                // right now i is point character after digit, we need to turn back 1
-                i--;
-            }
-            else if (tokens[i] == '(')
-            {
-                operators.Push(tokens[i]);
-            }
-            else if (tokens[i] == ')')
-            {
-                while ((char)operators.Peek() != '(')
-                {
-                    values.Push(DoOperation(
-                    (char)operators.Pop(), (int)values.Pop(), (int)values.Pop()));
-                }
-                operators.Pop();
-            }
-            else if (tokens[i] == '+' ||
-                     tokens[i] == '-' ||
-                     tokens[i] == '*' ||
-                     tokens[i] == '/')
-            {
-                while (operators.Count > 0 && Precedence(tokens[i], (char)operators.Peek()))
-                {
-                    values.Push(DoOperation((char)operators.Pop(), (int)values.Pop(), (int)values.Pop()));
-                }
-                operators.Push(tokens[i]);
+                case var digit when Char.IsDigit(digit):
+                    operandstack.Push(Convert.ToInt32(digit.ToString()));
+                    break;
+                case var op when precedence.ContainsKey(op):
+                    var keepLooping = true;
+                    while (keepLooping && operatorstack.Count > 0 && precedence[ch] > precedence[operatorstack.Peek()])
+                    {
+                        switch (operatorstack.Peek())
+                        {
+                            case '+':
+                                operandstack.Push(operandstack.Pop() + operandstack.Pop());
+                                break;
+                            case '-':
+                                operandstack.Push(-operandstack.Pop() + operandstack.Pop());
+                                break;
+                            case '*':
+                                operandstack.Push(operandstack.Pop() * operandstack.Pop());
+                                break;
+                            case '/':
+                                var divisor = operandstack.Pop();
+                                operandstack.Push(operandstack.Pop() / divisor);
+                                break;
+                            case '(':
+                                keepLooping = false;
+                                break;
+                        }
+                        if (keepLooping)
+                            operatorstack.Pop();
+                    }
+                    if (ch == ')')
+                        operatorstack.Pop();
+                    else
+                        operatorstack.Push(ch);
+                    break;
+                default:
+                    throw new ArgumentException();
             }
         }
 
-        while (operators.Count > 0)
-        {
-            values.Push(DoOperation((char)operators.Pop(), (int)values.Pop(), (int)values.Pop()));
-        }
+        if (operatorstack.Count > 0 || operandstack.Count > 1)
+            throw new ArgumentException();
 
-        return (int)values.Pop();
+        return operandstack.Pop();
     }
 
     public void Clear()
@@ -169,7 +124,8 @@ public partial class MainWindow : Gtk.Window
             SetText("000");
         };
         equal.Clicked += (object obj, EventArgs args) => {
-            display.Buffer.Text = Calculate().ToString();
+            String temporary = display.Buffer.Text;
+            display.Buffer.Text = ComputeInfix(temporary).ToString();
         };
         plus.Clicked += (object obj, EventArgs args) => {
             SetText("+");
