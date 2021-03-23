@@ -1,9 +1,9 @@
 ﻿<Properties StartupConfiguration="{46AFA57F-9570-466A-AD54-42334E5A7518}|Default">
-  <MonoDevelop.Ide.ItemProperties.Calculator FirstBuild="True" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.ItemProperties.Calculator PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Calculator/MainWindow.cs">
     <Files>
-      <File FileName="Calculator/Program.cs" Line="1" Column="1" />
-      <File FileName="Calculator/MainWindow.cs" Line="1" Column="1" />
+      <File FileName="Calculator/Program.cs" Line="12" Column="24" />
+      <File FileName="Calculator/MainWindow.cs" Line="20" Column="9" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -14,6 +14,9 @@
             </Node>
           </Node>
         </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>

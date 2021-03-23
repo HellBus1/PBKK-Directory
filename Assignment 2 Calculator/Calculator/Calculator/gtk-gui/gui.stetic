@@ -20,7 +20,7 @@
             <property name="MemberName" />
             <property name="ShadowType">In</property>
             <child>
-              <widget class="Gtk.TextView" id="textview5">
+              <widget class="Gtk.TextView" id="display">
                 <property name="MemberName" />
                 <property name="CanFocus">True</property>
                 <property name="ShowScrollbars">True</property>
@@ -49,8 +49,8 @@
                     <property name="NRows">4</property>
                     <property name="NColumns">5</property>
                     <property name="Homogeneous">True</property>
-                    <property name="RowSpacing">6</property>
-                    <property name="ColumnSpacing">11</property>
+                    <property name="RowSpacing">8</property>
+                    <property name="ColumnSpacing">12</property>
                     <child>
                       <widget class="Gtk.Button" id="clear">
                         <property name="MemberName" />
