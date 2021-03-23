@@ -1,0 +1,6 @@
+/home/syubban/Repositories/PBKK-Directory/Assignment 2 Calculator/MoneyConverter/MoneyConverter/bin/Debug/MoneyConverter.exe
+/home/syubban/Repositories/PBKK-Directory/Assignment 2 Calculator/MoneyConverter/MoneyConverter/bin/Debug/MoneyConverter.pdb
+/home/syubban/Repositories/PBKK-Directory/Assignment 2 Calculator/MoneyConverter/MoneyConverter/obj/x86/Debug/MoneyConverter.csprojAssemblyReference.cache
+/home/syubban/Repositories/PBKK-Directory/Assignment 2 Calculator/MoneyConverter/MoneyConverter/obj/x86/Debug/MoneyConverter.csproj.CoreCompileInputs.cache
+/home/syubban/Repositories/PBKK-Directory/Assignment 2 Calculator/MoneyConverter/MoneyConverter/obj/x86/Debug/MoneyConverter.exe
+/home/syubban/Repositories/PBKK-Directory/Assignment 2 Calculator/MoneyConverter/MoneyConverter/obj/x86/Debug/MoneyConverter.pdb
