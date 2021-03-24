@@ -1,19 +1,17 @@
 ﻿<Properties StartupConfiguration="{C07D9849-0248-406A-810D-F5B6C464360F}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="MoneyConverter/Model/Currencies.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="MoneyConverter/MainWindow.cs">
     <Files>
       <File FileName="MoneyConverter/Program.cs" Line="1" Column="1" />
-      <File FileName="MoneyConverter/MainWindow.cs" Line="13" Column="6" />
-      <File FileName="MoneyConverter/Model/CurrenciesCode.cs" Line="7" Column="21" />
-      <File FileName="MoneyConverter/Model/Currencies.cs" Line="6" Column="1" />
+      <File FileName="MoneyConverter/MainWindow.cs" Line="14" Column="28" />
+      <File FileName="MoneyConverter/Factory/CurrencyFactory.cs" Line="11" Column="11" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="MoneyConverter" expanded="True">
             <Node name="MoneyConverter" expanded="True">
-              <Node name="Model" expanded="True">
-                <Node name="Currencies.cs" selected="True" />
-              </Node>
+              <Node name="Factory" expanded="True" />
+              <Node name="MainWindow.cs" selected="True" />
             </Node>
           </Node>
         </State>

@@ -17,6 +17,7 @@ public partial class MainWindow : Gtk.Window
 
     private void Initialize()
     {
+
         String[] values1 = new string[] {
             "USD",
             "EUR",
