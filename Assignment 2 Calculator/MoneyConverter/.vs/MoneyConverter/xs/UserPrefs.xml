@@ -1,24 +1,26 @@
 ﻿<Properties StartupConfiguration="{C07D9849-0248-406A-810D-F5B6C464360F}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="MoneyConverter/MainWindow.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="MoneyConverter/Model/Currencies.cs">
     <Files>
       <File FileName="MoneyConverter/Program.cs" Line="1" Column="1" />
-      <File FileName="MoneyConverter/MainWindow.cs" Line="6" Column="5" />
+      <File FileName="MoneyConverter/MainWindow.cs" Line="13" Column="6" />
+      <File FileName="MoneyConverter/Model/CurrenciesCode.cs" Line="7" Column="21" />
+      <File FileName="MoneyConverter/Model/Currencies.cs" Line="6" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="MoneyConverter" expanded="True">
             <Node name="MoneyConverter" expanded="True">
-              <Node name="UserInterface" expanded="True" />
-              <Node name="Properties" expanded="True" />
-              <Node name="MainWindow.cs" selected="True" />
+              <Node name="Model" expanded="True">
+                <Node name="Currencies.cs" selected="True" />
+              </Node>
             </Node>
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.ItemProperties.MoneyConverter FirstBuild="True" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.ItemProperties.MoneyConverter PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
