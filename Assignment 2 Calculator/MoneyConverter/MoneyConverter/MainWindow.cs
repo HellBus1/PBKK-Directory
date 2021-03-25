@@ -1,5 +1,6 @@
 ﻿using System;
 using Gtk;
+using MoneyConverter.Factory;
 
 public partial class MainWindow : Gtk.Window
 {
@@ -17,6 +18,9 @@ public partial class MainWindow : Gtk.Window
 
     private void Initialize()
     {
+        CurrencyFactory factory = new CurrencyFactory();
+
+        factory.ConvertCurrency("PHP", "USD");
 
         String[] values1 = new string[] {
             "USD",
