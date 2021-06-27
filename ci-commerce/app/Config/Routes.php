@@ -38,6 +38,10 @@ $routes->get('/admin', 'AuthAdminController::index');
 $routes->post('/admin/login', 'AuthAdminController::login');
 $routes->get('/admin/logout', 'AuthAdminController::logout');
 
+$routes->get('/admin/category', 'AdminController::categories', ['filter' => 'authfilter']);
+$routes->get('/admin/product', 'AdminController::products', ['filter' => 'authfilter']);
+$routes->get('/admin/order', 'AdminController::orders', ['filter' => 'authfilter']);
+
 
 $routes->get('/dashboard', 'AdminController::index', ['filter' => 'authfilter']);
 
