@@ -30,6 +30,14 @@
               <label for="prd_image">Gambar</label>
               <input type="file" class="form-control" id="prd_image" name="prd_image">
             </div>
+            <div class="form-group">
+              <label for="ctr_id">Kategori</label>
+              <select class="custom-select form-control-border" id="ctr_id" name="ctr_id">
+                <?php foreach ($categories as $category) : ?>
+                  <option value="<?= $category['id'] ?>" ><?= $category['ctr_name'] ?></option>
+                <?php endforeach ?>
+              </select>
+            </div>
           </div>
           <div class="modal-footer">
             <button type="submit" class="btn btn-primary">Save changes</button>

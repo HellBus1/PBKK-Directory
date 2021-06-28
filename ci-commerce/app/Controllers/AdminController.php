@@ -28,10 +28,10 @@ class AdminController extends BaseController
 
     $product = new Product();
     $category = new Category();
-    
+
     $data['categories'] = $category->findAll();
     $data['products'] = $product->findAll();
-
+    // ->join('category', 'category.id = product.ctr_id', 'INNER')
     return view("admin/pages/product", $data);
   }
 
@@ -65,15 +65,16 @@ class AdminController extends BaseController
       $description = $this->request->getVar('prd_description');
       $stock = $this->request->getVar('prd_stock');
       // $image = $this->request->getVar('prd_image');
-      $file = $this->requestt->getVar('prd_image');
+      $file = $this->request->getFile('prd_image');
+      $category = $this->request->getVar('ctr_id');
       $originalName = null;
 
-      if($file){
+      if ($file) {
         $originalName = $file->getClientName(); // Mengetahui Nama Asli
         $ext = $file->getClientExtension(); // Mengetahui extensi File
         $type = $file->getClientMimeType(); // Mengetahui Mime File
-        $name_total = random_string('unique', 10).'_'.$originalName;
-        $file->move(ROOTPATH.'images', $name_total);
+        $name_total = $file->getRandomName();
+        $file->move('images/', $name_total);
       }
 
       $data = new Product();
@@ -82,7 +83,8 @@ class AdminController extends BaseController
         'prd_price' => $price,
         'prd_description' => $description,
         'prd_stock' => $stock,
-        'prd_image' => null
+        'ctr_id' => $category,
+        'prd_image' => $file != null ? 'images/' . $name_total : null
       ]);
 
       session()->setFlashdata('sukses', 'Berhasil ditambah');
@@ -92,6 +94,23 @@ class AdminController extends BaseController
 
   public function deleteProduct($id)
   {
+    $product = new Product();
+
+    $result = $product->find($id);
+
+    // var_dump($result);
+    // die();
+
+    if (file_exists($result['prd_image']) && $result['prd_image']) {
+      unlink($result['prd_image']);
+    }
+
+    $product2 = new Product();
+    $product2 = $product2->where('id', $id);
+    $product2->delete();
+
+    session()->setFlashdata('sukses', 'Berhasil dihapus');
+    return redirect()->to('/admin/product');
   }
 
   public function editProduct()

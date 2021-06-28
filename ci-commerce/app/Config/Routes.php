@@ -41,7 +41,7 @@ $routes->get('/admin/logout', 'AuthAdminController::logout');
 $routes->get('/admin/category', 'AdminController::categories', ['filter' => 'authfilter']);
 $routes->get('/admin/product', 'AdminController::products', ['filter' => 'authfilter']);
 $routes->post('/admin/product/create', 'AdminController::createProduct', ['filter' => 'authfilter']);
-$routes->post('/admin/product/delete/(:any)', 'AdminController::deleteProduct/$1', ['filter' => 'authfilter']);
+$routes->get('/admin/product/delete/(:any)', 'AdminController::deleteProduct/$1', ['filter' => 'authfilter']);
 
 $routes->get('/admin/order', 'AdminController::orders', ['filter' => 'authfilter']);
 

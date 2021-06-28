@@ -1,22 +1,22 @@
 <!-- jQuery -->
 <script src="<?= base_url('plugins/jquery/jquery.min.js') ?>"></script>
 <!-- jQuery UI 1.11.4 -->
-<!-- <script src="<?= base_url('plugins/jquery-ui/jquery-ui.min.js') ?>"></script> -->
+<script src="<?= base_url('plugins/jquery-ui/jquery-ui.min.js') ?>"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-<!-- <script>
+<script>
   $.widget.bridge('uibutton', $.ui.button)
-</script> -->
+</script>
 <!-- Bootstrap 4 -->
 <script src="<?= base_url('plugins/bootstrap/js/bootstrap.bundle.min.js') ?>"></script>
 <!-- ChartJS -->
-<!-- <script src="<?= base_url('plugins/chart.js/Chart.min.js') ?>"></script> -->
+<script src="<?= base_url('plugins/chart.js/Chart.min.js') ?>"></script>
 <!-- Sparkline -->
-<!-- <script src="<?= base_url('plugins/sparklines/sparkline.js') ?>"></script> -->
+<script src="<?= base_url('plugins/sparklines/sparkline.js') ?>"></script>
 <!-- JQVMap -->
-<!-- <script src="<?= base_url('plugins/jqvmap/jquery.vmap.min.js') ?>"></script>
-<script src="<?= base_url('plugins/jqvmap/maps/jquery.vmap.usa.js') ?>"></script> -->
+<script src="<?= base_url('plugins/jqvmap/jquery.vmap.min.js') ?>"></script>
+<script src="<?= base_url('plugins/jqvmap/maps/jquery.vmap.usa.js') ?>"></script>
 <!-- jQuery Knob Chart -->
-<!-- <script src="<?= base_url('plugins/jquery-knob/jquery.knob.min.js') ?>"></script> -->
+<script src="<?= base_url('plugins/jquery-knob/jquery.knob.min.js') ?>"></script>
 <!-- daterangepicker -->
 <script src="<?= base_url('plugins/moment/moment.min.js') ?>"></script>
 <script src="<?= base_url('plugins/daterangepicker/daterangepicker.js') ?>"></script>

@@ -35,7 +35,7 @@
             <div class="alert alert-success"><?= session()->getFlashdata('sukses') ?></div>
           <?php endif; ?>
 
-          <?php $idx = 0; ?>
+          <?php $idx = 1; ?>
           <table id="example2" class="table table-bordered table-hover">
             <thead>
               <tr>
@@ -51,14 +51,36 @@
               </tr>
             </thead>
             <tbody>
-              <?php foreach ($products as $product): ?>
-                <tr></tr>
+              <?php foreach ($products as $product) : ?>
+                <?php var_dump($product['id']); ?>
+                <tr>
                   <td><?= $idx++ ?></td>
                   <td><?= $product["prd_name"] ?></td>
                   <td><?= $product["prd_price"] ?></td>
                   <td><?= $product["prd_description"] ?></td>
                   <td>
-                    <button class="btn btn-primary">View Image</button>
+                    <button class="btn btn-primary" data-toggle="modal" data-target="#viewModal">View Image</button>
+
+                    <div class="modal" tabindex="-1" role="dialog" id="viewModal">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title">Preview Gambar</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            <div class="card-body">
+                              <img src="<?= base_url($product["prd_image"]) ?>" width="100%" height="auto" />
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </td>
                   <td><?= $product["prd_stock"] ?></td>
                   <td><?= $product["ctr_id"] ?></td>
@@ -66,7 +88,30 @@
                     <button class="btn btn-primary">Update</button>
                   </td>
                   <td>
-                    <button class="btn btn-danger">delete</button>
+                    <button class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">delete</button>
+                    <div class="modal" tabindex="-1" role="dialog" id="deleteModal">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title">Preview Gambar</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            <div class="card-body">
+                              <div>Apakah anda yakin?</div>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                              <a class="btn btn-primary" href="product/delete/<?= $product['id'] ?>">
+                                Submit
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </td>
                 </tr>
               <?php endforeach ?>
