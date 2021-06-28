@@ -65,16 +65,16 @@ class AdminController extends BaseController
       $description = $this->request->getVar('prd_description');
       $stock = $this->request->getVar('prd_stock');
       // $image = $this->request->getVar('prd_image');
-      // $file = $this->requestt->getVar('prd_image');
-      // $originalName = null;
+      $file = $this->requestt->getVar('prd_image');
+      $originalName = null;
 
-      // if($file){
-      //   $originalName = $file->getClientName(); // Mengetahui Nama Asli
-      //   $ext = $file->getClientExtension(); // Mengetahui extensi File
-      //   $type = $file->getClientMimeType(); // Mengetahui Mime File
-      //   $name_total = random_string('unique', 10).'_'.$originalName;
-      //   $file->move(base_url('images'), $name_total);
-      // }
+      if($file){
+        $originalName = $file->getClientName(); // Mengetahui Nama Asli
+        $ext = $file->getClientExtension(); // Mengetahui extensi File
+        $type = $file->getClientMimeType(); // Mengetahui Mime File
+        $name_total = random_string('unique', 10).'_'.$originalName;
+        $file->move(ROOTPATH.'images', $name_total);
+      }
 
       $data = new Product();
       $data->insert([
