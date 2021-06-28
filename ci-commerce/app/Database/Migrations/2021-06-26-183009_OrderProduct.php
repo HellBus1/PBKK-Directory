@@ -17,6 +17,10 @@ class OrderProduct extends Migration
       ],
       'ord_id'           => [
         'type'           => 'INT',
+        'null'           => TRUE,
+      ],
+      'usr_id'           => [
+        'type'           => 'INT',
       ],
       'prd_id'           => [
         'type'           => 'INT',
@@ -31,6 +35,9 @@ class OrderProduct extends Migration
 
     // Membuat foreign key
     $this->forge->addForeignKey('ord_id', 'order', 'id');
+
+    // Membuat foreign key
+    $this->forge->addForeignKey('usr_id', 'user', 'id');
 
     // Membuat foreign key
     $this->forge->addForeignKey('prd_id', 'product', 'id');
