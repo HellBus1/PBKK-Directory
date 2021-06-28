@@ -12,5 +12,5 @@ class OrderProduct extends Model
 	protected $useAutoIncrement     = true;
 	protected $insertID             = 0;
 	protected $returnType           = 'array';
-	protected $allowedFields        = ['ord_id', 'prd_id', 'orp_amount'];
+	protected $allowedFields        = ['ord_id', 'prd_id', 'usr_id', 'orp_amount'];
 }

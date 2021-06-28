@@ -15,6 +15,9 @@ class Order extends Migration
         'unsigned'       => true,
         'auto_increment' => true
       ],
+      'usr_id'           => [
+        'type'           => 'INT',
+      ],
       'ord_date'         => [
         'type'           => 'DATETIME',
         'null'           => true,
@@ -30,6 +33,7 @@ class Order extends Migration
       'ord_verified_by_seller'  => [
         'type'           => 'VARCHAR',
         'constraint'     => '255',
+        'null'           => true,
       ],
     ]);
 

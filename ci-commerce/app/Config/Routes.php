@@ -48,6 +48,17 @@ $routes->get('/admin/order', 'AdminController::orders', ['filter' => 'authfilter
 
 $routes->get('/dashboard', 'AdminController::index', ['filter' => 'authfilter']);
 
+$routes->get('/login', 'AuthUserController::index');
+$routes->post('/login', 'AuthUserController::login');
+$routes->get('/logout', 'AuthUserController::logout');
+
+$routes->get('/cart', 'UserController::cart', ['filter' => 'userfilter']);
+$routes->post('/cart/add', 'UserController::addItem', ['filter' => 'userfilter']);
+$routes->get('/cart/delete/(:any)', 'UserController::deleteItem/$1', ['filter' => 'userfilter']);
+
+$routes->post('/checkout', 'UserController::processCheckout', ['filter' => 'userfilter']);
+$routes->get('/transactions', 'UserController::transactionList', ['filter' => 'userfilter']);
+$routes->get('/transactions/(:any)', 'UserController::transaction/$1', ['filter' => 'userfilter']);
 
 /*
  * --------------------------------------------------------------------

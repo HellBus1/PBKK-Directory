@@ -33,20 +33,20 @@ class AuthUserController extends BaseController
         ];
 
         $session->set($ses_data);
-        return redirect()->to('/dashboard');
+        return redirect()->to('/');
       } else {
         $session->setFlashdata('msg', 'Wrong Password');
-        return redirect()->to('/user');
+        return redirect()->to('/login');
       }
     } else {
       $session->setFlashdata('msg', 'Email not Found');
-      return redirect()->to('/user');
+      return redirect()->to('/login');
     }
   }
 
   public function logout(){
     $session = session();
     $session->destroy();
-    return redirect()->to('/user');
+    return redirect()->to('/login');
   }
 }
