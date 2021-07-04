@@ -49,6 +49,7 @@
           </div>
           <div>
             <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+            <a href="/" class="btn btn-danger btn-block">Back</a>
           </div>
         </form>
 

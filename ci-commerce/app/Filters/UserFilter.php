@@ -10,7 +10,7 @@ class UserFilter implements FilterInterface {
   public function before(RequestInterface $request, $arguments = null)
   {
     if(!session('logged_in')) {
-      return redirect()->to('/');
+      return redirect()->to('/login');
     }
   }
 
