@@ -15,7 +15,7 @@
         <tbody>
           <?php foreach ($order_products as $key=>$order_product) : ?>
             <tr>
-              <th scope="row"><?=$key+1?></th>
+              <th scope="row"><?=++$key?></th>
               <td><?=$order_product['prd_name']?> (Rp. <?=number_format($order_product['prd_price'], 2, ',', '.')?>)</td>
               <td><?=$order_product['orp_amount']?>x</td>
               <td>Rp. <?=number_format($order_product['prd_price'] * $order_product['orp_amount'], 2, ',', '.')?></td>
