@@ -4,7 +4,7 @@
   <!-- Content Header (Page header) -->
   <div class="content-header">
     <div class="container-fluid">
-      <div class="row mb-2">
+      <div class="mb-2 row">
         <div class="col-sm-6">
           <h1 class="m-0">Produk</h1>
         </div>
@@ -52,7 +52,6 @@
             </thead>
             <tbody>
               <?php foreach ($products as $product) : ?>
-                <?php var_dump($product['id']); ?>
                 <tr>
                   <td><?= $idx++ ?></td>
                   <td><?= $product["prd_name"] ?></td>
