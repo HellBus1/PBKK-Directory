@@ -10,7 +10,7 @@ class AuthFilter implements FilterInterface {
   public function before(RequestInterface $request, $arguments = null)
   {
     if(!((session('usr_role') == 'admin') && (session('logged_in')))) {
-      return redirect()->to('/admin');
+      return redirect()->to('/login');
     }
   }
 
