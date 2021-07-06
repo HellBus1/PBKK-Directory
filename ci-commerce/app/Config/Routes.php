@@ -34,7 +34,7 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 
-$routes->get('/admin', 'AuthAdminController::index');
+$routes->get('/admin', 'AdminController::index', ['filter' => 'authfilter']);
 $routes->post('/admin/login', 'AuthAdminController::login');
 $routes->get('/admin/logout', 'AuthAdminController::logout');
 
@@ -46,7 +46,7 @@ $routes->get('/admin/product/delete/(:any)', 'AdminController::deleteProduct/$1'
 $routes->get('/admin/order', 'AdminController::orders', ['filter' => 'authfilter']);
 
 
-$routes->get('/dashboard', 'AdminController::index', ['filter' => 'authfilter']);
+// $routes->get('/dashboard', 'AdminController::index', ['filter' => 'authfilter']);
 
 $routes->get('/login', 'AuthUserController::index');
 $routes->post('/login', 'AuthUserController::login');

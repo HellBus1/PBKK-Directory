@@ -46,6 +46,6 @@ class AuthAdminController extends BaseController
   public function logout(){
     $session = session();
     $session->destroy();
-    return redirect()->to('/admin');
+    return redirect()->to('/login');
   }
 }
