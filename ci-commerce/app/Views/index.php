@@ -23,5 +23,8 @@
         </div>
       </div>
     <?php endforeach ?>
+    <?php if(empty($products)) : ?>
+      <h2 class="text-center">No Product Found</h2>
+    <?php endif ?>
   </div>
 <?= $this->endSection() ?>

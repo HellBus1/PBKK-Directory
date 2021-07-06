@@ -88,7 +88,6 @@ Class UserController extends BaseController
 
   public function transactionList()
   {
-    // list semua transaction order by time desc
     $order = new Order();
     $user_id = session()->id;
     $data['orders'] = $order->where('usr_id', $user_id)->findAll();

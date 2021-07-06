@@ -35,6 +35,9 @@
       <p class="my-1">
         Address: <strong><?=$order['ord_alamat']?></strong>
       </p>
+      <p class="my-1">
+        Status: <strong><?=$order['ord_verified_by_seller'] ? 'Verified' : 'Not verified' ?></strong>
+      </p>
     </div>
   </div>
 <?= $this->endSection() ?>
