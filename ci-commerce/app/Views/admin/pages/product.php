@@ -58,9 +58,9 @@
                   <td><?= $product["prd_price"] ?></td>
                   <td><?= $product["prd_description"] ?></td>
                   <td>
-                    <button class="btn btn-primary" data-toggle="modal" data-target="#viewModal">View Image</button>
+                    <button class="btn btn-primary" data-toggle="modal" data-target="#viewModal<?= $idx ?>">View Image</button>
 
-                    <div class="modal" tabindex="-1" role="dialog" id="viewModal">
+                    <div class="modal" tabindex="-1" role="dialog" id="viewModal<?= $idx ?>">
                       <div class="modal-dialog" role="document">
                         <div class="modal-content">
                           <div class="modal-header">
@@ -141,8 +141,8 @@
                     </div>
                   </td>
                   <td>
-                    <button class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">delete</button>
-                    <div class="modal" tabindex="-1" role="dialog" id="deleteModal">
+                    <button class="btn btn-danger" data-toggle="modal" data-target="#deleteModal<?= $idx ?>">delete</button>
+                    <div class="modal" tabindex="-1" role="dialog" id="deleteModal<?= $idx ?>">
                       <div class="modal-dialog" role="document">
                         <div class="modal-content">
                           <div class="modal-header">
