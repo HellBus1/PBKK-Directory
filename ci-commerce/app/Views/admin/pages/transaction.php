@@ -32,17 +32,26 @@
           <table id="example2" class="table table-bordered table-hover">
             <thead>
               <tr>
-                <th>ID</th>
-                <th>Kategori</th>
-                <th>Update</th>
+                <th scope="col">#</th>
+                <th scope="col">Timestamp</th>
+                <th scope="col">Total Price</th>
+                <th scope="col">Address</th>
+                <th scope="col">Status</th>
+                <th scope="col">Action</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
+              <?php foreach ($orders as $key => $order) : ?>
+                <tr>
+                  <th scope="row"><?= ++$key ?></th>
+                  <td><?= $order['ord_date'] ?></td>
+                  <td><?= $order['ord_total_penjualan'] ?></td>
+                  <td><?= $order['ord_alamat'] ?></td>
+                  <td><?= $order['ord_verified_by_seller'] ? 'Verified' : 'Not verified' ?></td>
+                  <td><a class="btn btn-sm btn-primary" href="/admin/order/approve/<?= $order['id'] ?>">Approve</a></td>
+                </tr>
+              <?php endforeach ?>
+            </tbody>
           </table>
         </div>
       </div>

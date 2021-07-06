@@ -183,7 +183,16 @@ class AdminController extends BaseController
     return view("admin/pages/transaction", $data);
   }
 
-  public function approveOrder()
+  public function approveOrder($id)
   {
+    $data = new Order();
+    $data_edited = $data->where('id', $id)->first();
+
+    $data->update($id, [
+      'ord_verified_by_seller' => '1',
+    ]);
+
+    session()->setFlashdata('sukses', 'Berhasil ditambah');
+    return redirect()->to('/admin/order');
   }
 }

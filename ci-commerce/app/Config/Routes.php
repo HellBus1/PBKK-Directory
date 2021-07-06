@@ -46,6 +46,7 @@ $routes->post('/admin/product/edit/(:any)', 'AdminController::editProduct/$1', [
 $routes->get('/admin/product/delete/(:any)', 'AdminController::deleteProduct/$1', ['filter' => 'authfilter']);
 
 $routes->get('/admin/order', 'AdminController::orders', ['filter' => 'authfilter']);
+$routes->get('/admin/order/approve/(:any)', 'AdminController::approveOrder/$1', ['filter' => 'authfilter']);
 
 
 // $routes->get('/dashboard', 'AdminController::index', ['filter' => 'authfilter']);
