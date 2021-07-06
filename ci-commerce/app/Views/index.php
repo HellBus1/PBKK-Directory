@@ -8,6 +8,7 @@
           <div class="card-body">
             <form action="/cart/add" method="POST">
               <h5 class="card-title"><?=$product['prd_name']?></h5>
+              <p class="card-title"><?=$product['prd_description']?></p>
               
               <input name="prd_id" type="hidden" value="<?=$product['id']?>">
               <input name="prd_name" type="hidden" value="<?=$product['prd_name']?>">
