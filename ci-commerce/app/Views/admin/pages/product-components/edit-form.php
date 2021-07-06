@@ -16,15 +16,15 @@
             </div>
             <div class="form-group">
               <label for="prd_price">Harga</label>
-              <input type="number" class="form-control" id="prd_price" placeholder="Password" name="prd_price">
+              <input type="number" class="form-control" id="prd_price" placeholder="Enter Price" name="prd_price">
             </div>
             <div class="form-group">
               <label for="prd_description">Deskripsi</label>
-              <input type="text" class="form-control" id="prd_description" placeholder="Password" name="prd_description">
+              <input type="text" class="form-control" id="prd_description" placeholder="Enter Description" name="prd_description">
             </div>
             <div class="form-group">
               <label for="prd_stock">Stok</label>
-              <input type="number" class="form-control" id="prd_stock" placeholder="Password" name="prd_stock">
+              <input type="number" class="form-control" id="prd_stock" placeholder="Enter Stock" name="prd_stock">
             </div>
             <div class="form-group">
               <label for="prd_image">Gambar</label>
