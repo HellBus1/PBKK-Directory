@@ -84,7 +84,61 @@
                   <td><?= $product["prd_stock"] ?></td>
                   <td><?= $product["ctr_id"] ?></td>
                   <td>
-                    <button class="btn btn-primary">Update</button>
+                    <button class="btn btn-primary" data-toggle="modal" data-target="#editModal<?= $idx ?>">Update</button>
+                    <div class="modal" tabindex="-1" role="dialog" id="editModal<?= $idx ?>">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title">Tambah Produk</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            <form method="post" enctype="multipart/form-data" action="<?= base_url('/admin/product/edit/'.$product['id']) ?>">
+                              <div class="card-body">
+                                <div class="form-group">
+                                  <label for="prd_name<?= $idx ?>">Nama</label>
+                                  <input type="text" class="form-control" id="prd_name<?= $idx ?>" placeholder="Enter email" name="prd_name" value="<?= $product['prd_name'] ?>">
+                                </div>
+                                <div class="form-group">
+                                  <label for="prd_price<?= $idx ?>">Harga</label>
+                                  <input type="number" class="form-control" id="prd_price<?= $idx ?>" placeholder="Password" name="prd_price" value="<?= $product['prd_price'] ?>">
+                                </div>
+                                <div class="form-group">
+                                  <label for="prd_description<?= $idx ?>">Deskripsi</label>
+                                  <input type="text" class="form-control" id="prd_description<?= $idx ?>" placeholder="Password" name="prd_description" value="<?= $product['prd_description'] ?>">
+                                </div>
+                                <div class="form-group">
+                                  <label for="prd_stock<?= $idx ?>">Stok</label>
+                                  <input type="number" class="form-control" id="prd_stock<?= $idx ?>" placeholder="Password" name="prd_stock" value="<?= $product['prd_stock'] ?>">
+                                </div>
+                                <div class="form-group">
+                                  <label for="prd_image<?= $idx ?>">Gambar</label>
+                                  <input type="file" class="form-control" id="prd_image<?= $idx ?>" name="prd_image">
+                                </div>
+                                <div class="form-group">
+                                  <label for="ctr_id<?= $idx ?>">Kategori</label>
+                                  <select class="custom-select form-control-border" id="ctr_id<?= $idx ?>" name="ctr_id">
+                                    <?php foreach ($categories as $category) : ?>
+                                      <?php if ($product['ctr_id'] == $category['id']) : ?>
+                                        <option value="<?= $category['id'] ?>" selected><?= $category['ctr_name'] ?></option>
+                                      <?php else : ?>
+                                        <option value="<?= $category['id'] ?>"><?= $category['ctr_name'] ?></option>
+                                      <?php endif ?>
+                                    <?php endforeach ?>
+                                  </select>
+                                </div>
+                              </div>
+                              <div class="modal-footer">
+                                <button type="submit" class="btn btn-primary">Save changes</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                              </div>
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </td>
                   <td>
                     <button class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">delete</button>
@@ -92,7 +146,7 @@
                       <div class="modal-dialog" role="document">
                         <div class="modal-content">
                           <div class="modal-header">
-                            <h5 class="modal-title">Preview Gambar</h5>
+                            <h5 class="modal-title">Delete Product</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                               <span aria-hidden="true">&times;</span>
                             </button>

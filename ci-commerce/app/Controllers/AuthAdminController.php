@@ -32,7 +32,7 @@ class AuthAdminController extends BaseController
                 'usr_role'  => $data['usr_role'],
             ];
             $session->set($ses_data);
-            return redirect()->to('/dashboard');
+            return redirect()->to('/admin');
         }else{
             $session->setFlashdata('msg', 'Wrong Password');
             return redirect()->to('/admin');

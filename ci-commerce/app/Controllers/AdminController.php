@@ -113,8 +113,66 @@ class AdminController extends BaseController
     return redirect()->to('/admin/product');
   }
 
-  public function editProduct()
+  public function editProduct($id)
   {
+    if (!$this->validate([
+      'prd_name' => [
+        'rules' => 'required',
+        'errors' => [
+          'required' => '{field} Harus diisi'
+        ]
+      ],
+      'prd_price' => [
+        'rules' => 'required',
+        'errors' => [
+          'required' => '{field} Harus diisi',
+        ]
+      ],
+      'prd_description' => [
+        'rules' => 'required',
+        'errors' => [
+          'required' => '{field} Harus diisi'
+        ]
+      ],
+    ])) {
+      session()->setFlashdata('msg', $this->validator->listErrors());
+      return redirect()->back()->withInput();
+    } else {
+      $name = $this->request->getVar('prd_name');
+      $price = $this->request->getVar('prd_price');
+      $description = $this->request->getVar('prd_description');
+      $stock = $this->request->getVar('prd_stock');
+      // $image = $this->request->getVar('prd_image');
+      $file = $this->request->getFile('prd_image');
+      $category = $this->request->getVar('ctr_id');
+      $originalName = null;
+      // var_dump($file->getSize());
+      // die();
+      $data = new Product();
+      $data_edited = $data->where('id', $id)->first();
+
+      if ($file->getSize() > 0) {
+        unlink($data_edited['prd_image']);
+        $originalName = $file->getClientName(); // Mengetahui Nama Asli
+        $ext = $file->getClientExtension(); // Mengetahui extensi File
+        $type = $file->getClientMimeType(); // Mengetahui Mime File
+        $name_total = $file->getRandomName();
+        $file->move('images/', $name_total);
+      }
+
+
+      $data->update($id, [
+        'prd_name' => $name,
+        'prd_price' => $price,
+        'prd_description' => $description,
+        'prd_stock' => $stock,
+        'ctr_id' => $category,
+        'prd_image' => $file != null ? 'images/' . $name_total : $data_edited['prd_image']
+      ]);
+
+      session()->setFlashdata('sukses', 'Berhasil ditambah');
+      return redirect()->to('/admin/product');
+    }
   }
 
   public function orders()
