@@ -103,15 +103,15 @@
                                 </div>
                                 <div class="form-group">
                                   <label for="prd_price<?= $idx ?>">Harga</label>
-                                  <input type="number" class="form-control" id="prd_price<?= $idx ?>" placeholder="Password" name="prd_price" value="<?= $product['prd_price'] ?>">
+                                  <input type="number" class="form-control" id="prd_price<?= $idx ?>" placeholder="Enter Price" name="prd_price" value="<?= $product['prd_price'] ?>">
                                 </div>
                                 <div class="form-group">
                                   <label for="prd_description<?= $idx ?>">Deskripsi</label>
-                                  <input type="text" class="form-control" id="prd_description<?= $idx ?>" placeholder="Password" name="prd_description" value="<?= $product['prd_description'] ?>">
+                                  <input type="text" class="form-control" id="prd_description<?= $idx ?>" placeholder="Enter Description" name="prd_description" value="<?= $product['prd_description'] ?>">
                                 </div>
                                 <div class="form-group">
                                   <label for="prd_stock<?= $idx ?>">Stok</label>
-                                  <input type="number" class="form-control" id="prd_stock<?= $idx ?>" placeholder="Password" name="prd_stock" value="<?= $product['prd_stock'] ?>">
+                                  <input type="number" class="form-control" id="prd_stock<?= $idx ?>" placeholder="Enter Stock" name="prd_stock" value="<?= $product['prd_stock'] ?>">
                                 </div>
                                 <div class="form-group">
                                   <label for="prd_image<?= $idx ?>">Gambar</label>
