@@ -99,7 +99,7 @@
                               <div class="card-body">
                                 <div class="form-group">
                                   <label for="prd_name<?= $idx ?>">Nama</label>
-                                  <input type="text" class="form-control" id="prd_name<?= $idx ?>" placeholder="Enter email" name="prd_name" value="<?= $product['prd_name'] ?>">
+                                  <input type="text" class="form-control" id="prd_name<?= $idx ?>" placeholder="Enter Name" name="prd_name" value="<?= $product['prd_name'] ?>">
                                 </div>
                                 <div class="form-group">
                                   <label for="prd_price<?= $idx ?>">Harga</label>

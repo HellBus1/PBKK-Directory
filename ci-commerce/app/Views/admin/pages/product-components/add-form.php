@@ -12,7 +12,7 @@
           <div class="card-body">
             <div class="form-group">
               <label for="prd_name">Nama</label>
-              <input type="text" class="form-control" id="prd_name" placeholder="Enter email" name="prd_name">
+              <input type="text" class="form-control" id="prd_name" placeholder="Enter Name" name="prd_name">
             </div>
             <div class="form-group">
               <label for="prd_price">Harga</label>
