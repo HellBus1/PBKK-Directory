@@ -13,7 +13,7 @@
               <input name="prd_name" type="hidden" value="<?=$product['prd_name']?>">
               <p class="card-text">
                 <label for="quantity" class="form-label">Quantity</label>
-                <input name="quantity" class="form-control" type="number" value="0">
+                <input name="quantity" class="form-control" type="number" value="1" min="1">
               </p>
               <div class="gap-2 d-grid">
                 <button class="btn btn-primary" type="submit">Add to cart</button>
