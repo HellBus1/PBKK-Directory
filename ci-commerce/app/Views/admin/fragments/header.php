@@ -4,7 +4,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>Startmin - Bootstrap Admin Theme</title>
+<title>Shopii Admin</title>
 
 <?= csrf_meta() ?>
 
