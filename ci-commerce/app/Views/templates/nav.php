@@ -15,8 +15,14 @@
           </li>
         <?php endif ?>
       </ul>
-      <form class="d-flex">
+      </div>
+        <form class="d-flex" action="/search" method="GET">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
         <ul class="mb-2 navbar-nav me-auto mb-lg-0">
+          <li class="nav-item">
+          </li>
           <li class="nav-item">
             <?php if (session('logged_in')) : ?>
               <a class="nav-link" href="/logout">Logout</a>
@@ -25,7 +31,7 @@
             <?php endif ?>
           </li>
         </ul>
-      </form>
+    </div>
     </div>
   </div>
 </nav>
