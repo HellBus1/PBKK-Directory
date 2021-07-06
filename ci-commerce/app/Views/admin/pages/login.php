@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTE 3 | Log in (v2)</title>
+  <title>Shopii Admin | Login</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -20,7 +20,7 @@
   <div class="login-box">
     <!-- /.login-logo -->
     <div class="card card-outline card-primary">
-      <div class="card-header text-center">
+      <div class="text-center card-header">
         <a href="../../index2.html" class="h1"><b>Admin</b></a>
       </div>
       <div class="card-body">
@@ -31,7 +31,7 @@
         <?php endif; ?>
 
         <form action="/admin/login" method="post">
-          <div class="input-group mb-3">
+          <div class="mb-3 input-group">
             <input type="email" class="form-control" placeholder="Email" name="usr_email">
             <div class="input-group-append">
               <div class="input-group-text">
@@ -39,7 +39,7 @@
               </div>
             </div>
           </div>
-          <div class="input-group mb-3">
+          <div class="mb-3 input-group">
             <input type="password" class="form-control" placeholder="Password" name="usr_password">
             <div class="input-group-append">
               <div class="input-group-text">

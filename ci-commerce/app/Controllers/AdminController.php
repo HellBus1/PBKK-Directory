@@ -167,10 +167,10 @@ class AdminController extends BaseController
         'prd_description' => $description,
         'prd_stock' => $stock,
         'ctr_id' => $category,
-        'prd_image' => $file != null ? 'images/' . $name_total : $data_edited['prd_image']
+        'prd_image' => $file->getSize() > 0 ? 'images/' . $name_total : $data_edited['prd_image']
       ]);
 
-      session()->setFlashdata('sukses', 'Berhasil ditambah');
+      session()->setFlashdata('sukses', 'Berhasil diupdate');
       return redirect()->to('/admin/product');
     }
   }
